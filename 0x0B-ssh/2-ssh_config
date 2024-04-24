@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# SSH client configuration
+
+Host*
+   PasswordAuthentication no
+   IdentifyFile ~/.ssh/school
+   Sending env LANG
+   HashKnownHosts yes
