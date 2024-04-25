@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# server-01 login
+
+ssh-add ~/.ssh/mykey
+
+ssh ubuntu@100.24.240.113
