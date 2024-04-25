@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# to install ngix on web server
+
+apt-get updade
+apt-get install ngix
+echo "Holberton School" > /var/www/html/index.html
+sudo ngix start
+sudo service ngix reload
