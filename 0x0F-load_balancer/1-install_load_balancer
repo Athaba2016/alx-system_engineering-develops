@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Distribute requests using a roundrobin algorithm
+
+# Configure HAproxy on my lb-01 server.
+sudo apt-get -y update
+apt-get -y install haproxy
+
+# Update config file
+server_config=\
+"
+frontend  faith_frontend
+        bind *:80
+        mode http
+        default_backend faith_backend
+backend faith_backend
+        balance roundrobin
+        server 472779-web-01 100.26.210.66:80 check
+        server 472779-web-02 54.209.115.228:80 check
+"
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# haproxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# HAproxy configuration file
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+# Nginx service
+sudo service haproxy restart
