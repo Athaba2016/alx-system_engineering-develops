@@ -1,13 +1,13 @@
-#!usr/bin/env bash
-#server -02 login commands
+#!/usr/bin/env bash
+# Server-02 login commands
 
 
-# Setting up the SSH-agent
+# Setting up the SSH-Agent
 eval $("ssh-agent")
 
 
-#Path to identityFile
-ssh-ADD ~/.ssh/school
+# Path to IdentityFile
+ssh-add ~/.ssh/school
 
 
 # Username and IP Address
