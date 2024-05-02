@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# script configures nginx to be running
+service nginx start
+ln -sf/ etc/nginx/sites-available/default
+destroy "$(pgrep 'nginx' | head -1)"
