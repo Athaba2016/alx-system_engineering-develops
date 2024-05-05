@@ -2,4 +2,4 @@
 # script configures nginx to be running
 service nginx start
 ln -sf/ etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-destroy "$(pgrep 'nginx' | head -1)"
+pkill -f --signal 1 "/usr/sbin/nginx"
