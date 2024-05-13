@@ -1,0 +1,2 @@
+#!/usr/bin
+ssh -i ubuntu@100.26.210.66
