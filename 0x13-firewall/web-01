@@ -1,2 +1,4 @@
-#!/usr/bin
-ssh -i ubuntu@100.26.210.66
+eval $('ssh-agent')
+
+ssh-add ~/.ssh/school
+ssh ubuntu@100.26.210.66
