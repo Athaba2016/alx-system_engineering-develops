@@ -1,16 +1,21 @@
 #!/usr/bin/python3
 """
-employee ID, Returns information about 
-his/her TODO list progress
+A Script that, uses this REST API, for a given employee ID, returns
+information about his/her TODO list progress
 """
 
+import json
 import requests
-import sys
+from sys import argv
 
-if -name_ == "_main_":
 
-    userId = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(idEmp)
-    user = 'https://jsonplaceholder.typicode.com/users/{}'.format(idEmp)
+if __name__ == "__main__":
+
+    sessionReq = requests.Session()
+
+    idEmp = argv[1]
+    idURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(idEmp)
+    nameURL = 'https://jsonplaceholder.typicode.com/users/{}'.format(idEmp)
 
     employee = sessionReq.get(idURL)
     employeeName = sessionReq.get(nameURL)
