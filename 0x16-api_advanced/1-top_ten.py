@@ -1,20 +1,16 @@
 #!/usr/bin/python3
-"""Function to print hot posts on a given Reddit subreddit."""
+"""Function to query subscribers on a given Reddit subreddit."""
 import requests
 
 def top_ten(subreddit):
-    """Print the titles of the 10 hottest posts on a given subreddit."""
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
+    """def number_of_subscribers(subreddit):"""
+    """Return the total number of subscribers on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {
-        "User-Agent": "linux:0x16.api.advanced: (my_user_agent_)"
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0"
     }
-    params = {
-        "limit": 10
-    }
-    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
-        print("None")
-        return
-    data = response.json()["data"]
-    for child in data["children"]:
-        print]get.(child[get."data"]get.["title"])
+        return 0
+    results = response.json().get("data")
+    return results.get("subscribers")
